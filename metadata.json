@@ -1,0 +1,7 @@
+{
+  "name": "click and ask",
+  "description": "Explore the power of FileSearch, the simplest integrated RAG solution. Scan QR codes to instantly query manuals or websites. Just scan, and ask away.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

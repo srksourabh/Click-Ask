@@ -1,0 +1,117 @@
+
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.29.0",
+    "jsqr": "https://esm.sh/jsqr@1.4.0"
+  }
+}
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2563eb" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="manifest" href="/manifest.json" />
+    <title>Click and ask - Gemini AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'gem-onyx': '#fcfdfd', 
+              'gem-slate': '#ffffff',
+              'gem-mist': '#e2e8f0',
+              'gem-offwhite': '#0f172a',
+              'gem-teal': '#0d9488',
+              'gem-blue': '#0284c7',
+              'gem-accent': '#6366f1',
+            },
+            keyframes: {
+              'progress-stripes': {
+                'from': { backgroundPosition: '1rem 0' },
+                'to': { backgroundPosition: '0 0' },
+              },
+              'scan-line': {
+                '0%': { top: '0%' },
+                '100%': { top: '100%' }
+              },
+              'float': {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-15px)' }
+              }
+            },
+            animation: {
+              'progress-stripes': 'progress-stripes 1s linear infinite',
+              'scan-line': 'scan-line 2s linear infinite',
+              'float': 'float 6s ease-in-out infinite'
+            },
+          }
+        }
+      }
+    </script>
+    <style>
+      .colorful-bg {
+        background: #fdfefe;
+        /* Structured Grid Pattern */
+        background-image: 
+          radial-gradient(#e2e8f0 1.5px, transparent 1.5px),
+          linear-gradient(to right, #f8fafc 1px, transparent 1px),
+          linear-gradient(to bottom, #f8fafc 1px, transparent 1px);
+        background-size: 40px 40px, 20px 20px, 20px 20px;
+        position: relative;
+        overflow-x: hidden;
+      }
+      .blob {
+        position: absolute;
+        width: 800px;
+        height: 800px;
+        filter: blur(120px);
+        opacity: 0.15;
+        z-index: 0;
+        border-radius: 50%;
+      }
+      .blob-1 { top: -200px; left: -100px; background: #38bdf8; }
+      .blob-2 { bottom: -200px; right: -100px; background: #f472b6; }
+      .blob-3 { top: 40%; right: -200px; background: #818cf8; }
+      
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #e2e8f0;
+        border-radius: 10px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #cbd5e1;
+      }
+      
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body class="colorful-bg text-gem-offwhite">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div id="root" class="relative z-10"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
